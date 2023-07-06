@@ -42,7 +42,15 @@ class CardBoardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        testLuckyCard()
         configureUI()
+    }
+    
+    /// 럭키카드 덱 생성 테스트 함수
+    private func testLuckyCard() {
+        let factory = LuckyCardFactory()
+        let deck = factory.createCardDeck()
     }
     
     private func configureUI() {

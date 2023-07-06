@@ -20,15 +20,22 @@ final class PersonalCardBoardView: RoundView {
         return label
     }()
     
-    init(frame: CGRect = .zero, alphabet: String) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
-        alphabetLabel.text = alphabet
         configureUI()
     }
     
+    convenience init(frame: CGRect = .zero, alphabet: String) {
+        self.init(frame: frame)
+        
+        alphabetLabel.text = alphabet
+    }
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        
+        configureUI()
     }
     
     private func configureUI() {

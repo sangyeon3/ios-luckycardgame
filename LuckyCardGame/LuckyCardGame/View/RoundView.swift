@@ -16,7 +16,9 @@ class RoundView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError()
+        super.init(coder: coder)
+        
+        configureUI()
     }
     
     private func configureUI() {
