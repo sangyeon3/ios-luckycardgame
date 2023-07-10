@@ -18,8 +18,11 @@
 		47907CDF2A53C8C400CB71AA /* PersonalCardBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CDE2A53C8C400CB71AA /* PersonalCardBoardView.swift */; };
 		47907CE12A5400EC00CB71AA /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CE02A5400EC00CB71AA /* RoundView.swift */; };
 		47907CE72A55436100CB71AA /* LuckyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CE62A55436100CB71AA /* LuckyCard.swift */; };
-		47907CE92A5548E900CB71AA /* LuckyCardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CE82A5548E900CB71AA /* LuckyCardFactory.swift */; };
 		47907CEB2A55513E00CB71AA /* LuckyCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CEA2A55513E00CB71AA /* LuckyCardGame.swift */; };
+		F460FC5B2A5937ED008C5B31 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC5A2A5937ED008C5B31 /* Player.swift */; };
+		F460FC5D2A593D27008C5B31 /* LuckyCardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC5C2A593D27008C5B31 /* LuckyCardManager.swift */; };
+		F460FC5F2A59BC34008C5B31 /* LuckyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC5E2A59BC34008C5B31 /* LuckyCardView.swift */; };
+		F460FC622A5AA13A008C5B31 /* CardBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC612A5AA13A008C5B31 /* CardBoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +58,11 @@
 		47907CDE2A53C8C400CB71AA /* PersonalCardBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCardBoardView.swift; sourceTree = "<group>"; };
 		47907CE02A5400EC00CB71AA /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		47907CE62A55436100CB71AA /* LuckyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCard.swift; sourceTree = "<group>"; };
-		47907CE82A5548E900CB71AA /* LuckyCardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardFactory.swift; sourceTree = "<group>"; };
 		47907CEA2A55513E00CB71AA /* LuckyCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardGame.swift; sourceTree = "<group>"; };
+		F460FC5A2A5937ED008C5B31 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F460FC5C2A593D27008C5B31 /* LuckyCardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardManager.swift; sourceTree = "<group>"; };
+		F460FC5E2A59BC34008C5B31 /* LuckyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardView.swift; sourceTree = "<group>"; };
+		F460FC612A5AA13A008C5B31 /* CardBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +113,9 @@
 		47907CAD2A53C1D000CB71AA /* LuckyCardGame */ = {
 			isa = PBXGroup;
 			children = (
-				47907CE52A55434200CB71AA /* App */,
-				47907CE42A55433900CB71AA /* Model */,
-				47907CE32A55432B00CB71AA /* View */,
-				47907CE22A55432300CB71AA /* ViewController */,
+				47907CF02A56504800CB71AA /* Resource */,
+				47907CF12A56505700CB71AA /* Source */,
+				47907CBC2A53C1D100CB71AA /* Info.plist */,
 			);
 			path = LuckyCardGame;
 			sourceTree = "<group>";
@@ -145,6 +150,8 @@
 			children = (
 				47907CE02A5400EC00CB71AA /* RoundView.swift */,
 				47907CDE2A53C8C400CB71AA /* PersonalCardBoardView.swift */,
+				F460FC5E2A59BC34008C5B31 /* LuckyCardView.swift */,
+				F460FC612A5AA13A008C5B31 /* CardBoardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,22 +160,40 @@
 			isa = PBXGroup;
 			children = (
 				47907CE62A55436100CB71AA /* LuckyCard.swift */,
-				47907CE82A5548E900CB71AA /* LuckyCardFactory.swift */,
-				47907CEA2A55513E00CB71AA /* LuckyCardGame.swift */,
+				F460FC5A2A5937ED008C5B31 /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		47907CE52A55434200CB71AA /* App */ = {
+		47907CF02A56504800CB71AA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				47907CAE2A53C1D000CB71AA /* AppDelegate.swift */,
 				47907CB02A53C1D000CB71AA /* SceneDelegate.swift */,
 				47907CB72A53C1D100CB71AA /* Assets.xcassets */,
 				47907CB92A53C1D100CB71AA /* LaunchScreen.storyboard */,
-				47907CBC2A53C1D100CB71AA /* Info.plist */,
 			);
-			path = App;
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		47907CF12A56505700CB71AA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				47907CE42A55433900CB71AA /* Model */,
+				47907CE32A55432B00CB71AA /* View */,
+				47907CE22A55432300CB71AA /* ViewController */,
+				47907CF22A5650BB00CB71AA /* Class */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		47907CF22A5650BB00CB71AA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				F460FC5C2A593D27008C5B31 /* LuckyCardManager.swift */,
+				47907CEA2A55513E00CB71AA /* LuckyCardGame.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,13 +326,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F460FC5D2A593D27008C5B31 /* LuckyCardManager.swift in Sources */,
 				47907CB32A53C1D000CB71AA /* CardBoardViewController.swift in Sources */,
 				47907CE72A55436100CB71AA /* LuckyCard.swift in Sources */,
 				47907CAF2A53C1D000CB71AA /* AppDelegate.swift in Sources */,
-				47907CE92A5548E900CB71AA /* LuckyCardFactory.swift in Sources */,
 				47907CEB2A55513E00CB71AA /* LuckyCardGame.swift in Sources */,
 				47907CB12A53C1D000CB71AA /* SceneDelegate.swift in Sources */,
+				F460FC622A5AA13A008C5B31 /* CardBoardView.swift in Sources */,
 				47907CDF2A53C8C400CB71AA /* PersonalCardBoardView.swift in Sources */,
+				F460FC5B2A5937ED008C5B31 /* Player.swift in Sources */,
+				F460FC5F2A59BC34008C5B31 /* LuckyCardView.swift in Sources */,
 				47907CE12A5400EC00CB71AA /* RoundView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LuckyCardGame/App/Info.plist;
+				INFOPLIST_FILE = LuckyCardGame/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "럭키카드";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -505,7 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LuckyCardGame/App/Info.plist;
+				INFOPLIST_FILE = LuckyCardGame/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "럭키카드";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
