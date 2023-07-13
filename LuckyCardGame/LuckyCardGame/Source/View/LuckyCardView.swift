@@ -93,13 +93,12 @@ final class LuckyCardView: UIView {
         addSubview(backLogoImage)
     }
     
-    /// 카드 모양과 숫자를 업데이트하고 앞뒷면 여부를 저장
+    /// 카드 모양과 숫자를 업데이트하고 앞뒷면 여부에 따라 알맞게 표시
     func update(for card: LuckyCard) {
-        let cardInfo = card.fetchCardInfo()
-        shapeLabel.text = cardInfo.shape.description
-        topNumberLabel.text = String(cardInfo.number.rawValue)
-        bottomNumberLabel.text = String(cardInfo.number.rawValue)
-        backLogoImage.isHidden = cardInfo.isUp
+        shapeLabel.text = card.shape.description
+        topNumberLabel.text = String(card.number.rawValue)
+        bottomNumberLabel.text = String(card.number.rawValue)
+        backLogoImage.isHidden = card.isUp
     }
 }
 

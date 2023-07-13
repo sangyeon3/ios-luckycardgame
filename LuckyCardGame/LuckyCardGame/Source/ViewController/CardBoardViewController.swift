@@ -7,41 +7,34 @@
 
 import UIKit
 
-class CardBoardViewController: UIViewController {
+final class CardBoardViewController: UIViewController {
     
     enum Size {
-        static let segmentedControlHeight = 44.0
-        static let subViewsX = 15.0
-        static let spacing = 10.0
+        static let inset = 15.0
     }
     
-    private let segmentedControl = UISegmentedControl(
-        items: LuckyCardGame.GameType.allCases.map { $0.typeName }
-    )
+    private let luckyGameView = LuckyGameView(frame: .zero)
     
-    private let cardBoardView = CardBoardView()
-    
-    private let luckyCardGame: LuckyCardGame
-    
+    private let luckyGame: LuckyGame
     
     init() {
         let manager = LuckyCardManager()
-        let players = [Player](repeating: Player(), count: 5)
-        luckyCardGame = LuckyCardGame(cardManager: manager, players: players)
+        luckyGame = LuckyGame(cardManager: manager)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         let manager = LuckyCardManager()
-        let players = [Player](repeating: Player(), count: 5)
-        luckyCardGame = LuckyCardGame(cardManager: manager, players: players)
+        luckyGame = LuckyGame(cardManager: manager)
+        
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupSegmentedControl()
+        setupLuckyGameView()
         configureUI()
     }
     
@@ -49,70 +42,46 @@ class CardBoardViewController: UIViewController {
         super.viewSafeAreaInsetsDidChange()
         
         configureFrame()
-        updateSegmentIndex()
+        luckyGameView.initSelectedSegmentIndex()
     }
     
-    private func setupSegmentedControl() {
-        segmentedControl.addTarget(self, action: #selector(indexDidChanged(of:)), for: .valueChanged)
+    private func setupLuckyGameView() {
+        luckyGameView.delegate = self
     }
     
     private func configureUI() {
         view.backgroundColor = .white
-        addSubviews()
-    }
-    
-    private func addSubviews() {
-        view.addSubview(segmentedControl)
-        view.addSubview(cardBoardView)
+        view.addSubview(luckyGameView)
     }
     
     private func configureFrame() {
-        let subViewWidth = view.frame.width - (view.safeAreaInsets.left + view.safeAreaInsets.right) - (Size.subViewsX * 2)
+        let width = view.frame.width - (view.safeAreaInsets.left + view.safeAreaInsets.right) - (Size.inset * 2)
+        let height = view.frame.height - (view.safeAreaInsets.top + view.safeAreaInsets.bottom)
         
-        configureSegmentedControlFrame(width: subViewWidth)
-        configureCardBoardViewFrame(width: subViewWidth)
+        luckyGameView.frame = CGRect(
+            x: Size.inset,
+            y: view.safeAreaInsets.top,
+            width: width,
+            height: height
+        )
+        
+        luckyGameView.configureFrame()
     }
+}
+
+// MARK: - LuckyGameViewDelegate
+
+extension CardBoardViewController: LuckyGameViewDelegate {
     
-    private func updateSegmentIndex() {
-        segmentedControl.selectedSegmentIndex = 0
-        indexDidChanged(of: segmentedControl)
-    }
-    
-    @objc func indexDidChanged(of segment: UISegmentedControl) {
-        if let gameType = LuckyCardGame.GameType(rawValue: segment.selectedSegmentIndex) {
+    func segmentIndexDidChanged(segmentIndex: Int) {
+        if let gameType = LuckyGame.GameType(rawValue: segmentIndex) {
             splitCard(gameType: gameType)
         }
     }
     
     /// 게임 타입에 따라 각 플레이어에게 카드를 나눠주고 view를 업데이트
-    private func splitCard(gameType: LuckyCardGame.GameType) {
-        let splitedCard = luckyCardGame.splitCard(gameType: gameType)
-        cardBoardView.update(for: gameType, with: splitedCard)
-    }
-    
-    // MARK: - configure subview's frame
-    
-    private func configureSegmentedControlFrame(width: CGFloat) {
-        let frame = CGRect(
-            x: Size.subViewsX,
-            y: view.safeAreaInsets.top,
-            width: width,
-            height: Size.segmentedControlHeight
-        )
-        segmentedControl.frame = frame
-    }
-    
-    private func configureCardBoardViewFrame(width: CGFloat) {
-        let y = segmentedControl.frame.origin.y + segmentedControl.frame.size.height + Size.spacing
-        let frame = CGRect(
-            x: Size.subViewsX,
-            y: y,
-            width: width,
-            height: view.frame.size.height - view.safeAreaInsets.bottom - y
-        )
-        
-        cardBoardView.frame = frame
-        cardBoardView.configureFrame()
+    private func splitCard(gameType: LuckyGame.GameType) {
+        let splitedCard = luckyGame.splitCard(gameType: gameType)
+        luckyGameView.updateGameBoardView(for: gameType, with: splitedCard)
     }
 }
-

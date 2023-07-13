@@ -16,13 +16,16 @@
 		47907CD02A53C1D100CB71AA /* LuckyCardGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CCF2A53C1D100CB71AA /* LuckyCardGameUITests.swift */; };
 		47907CD22A53C1D100CB71AA /* LuckyCardGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CD12A53C1D100CB71AA /* LuckyCardGameUITestsLaunchTests.swift */; };
 		47907CDF2A53C8C400CB71AA /* PersonalCardBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CDE2A53C8C400CB71AA /* PersonalCardBoardView.swift */; };
-		47907CE12A5400EC00CB71AA /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CE02A5400EC00CB71AA /* RoundView.swift */; };
 		47907CE72A55436100CB71AA /* LuckyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CE62A55436100CB71AA /* LuckyCard.swift */; };
-		47907CEB2A55513E00CB71AA /* LuckyCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CEA2A55513E00CB71AA /* LuckyCardGame.swift */; };
+		47907CEB2A55513E00CB71AA /* LuckyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47907CEA2A55513E00CB71AA /* LuckyGame.swift */; };
+		F41410C52A5ECD85005C16D0 /* SelectedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41410C42A5ECD85005C16D0 /* SelectedCard.swift */; };
 		F460FC5B2A5937ED008C5B31 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC5A2A5937ED008C5B31 /* Player.swift */; };
 		F460FC5D2A593D27008C5B31 /* LuckyCardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC5C2A593D27008C5B31 /* LuckyCardManager.swift */; };
 		F460FC5F2A59BC34008C5B31 /* LuckyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC5E2A59BC34008C5B31 /* LuckyCardView.swift */; };
-		F460FC622A5AA13A008C5B31 /* CardBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC612A5AA13A008C5B31 /* CardBoardView.swift */; };
+		F460FC622A5AA13A008C5B31 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC612A5AA13A008C5B31 /* GameBoardView.swift */; };
+		F460FC662A5D2586008C5B31 /* LuckyGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC652A5D2586008C5B31 /* LuckyGameView.swift */; };
+		F460FC702A5E3FEA008C5B31 /* LuckyCardManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC6F2A5E3FEA008C5B31 /* LuckyCardManagerProtocol.swift */; };
+		F460FC722A5E40F1008C5B31 /* MockLuckyCardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460FC712A5E40F1008C5B31 /* MockLuckyCardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +59,16 @@
 		47907CCF2A53C1D100CB71AA /* LuckyCardGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardGameUITests.swift; sourceTree = "<group>"; };
 		47907CD12A53C1D100CB71AA /* LuckyCardGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		47907CDE2A53C8C400CB71AA /* PersonalCardBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCardBoardView.swift; sourceTree = "<group>"; };
-		47907CE02A5400EC00CB71AA /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		47907CE62A55436100CB71AA /* LuckyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCard.swift; sourceTree = "<group>"; };
-		47907CEA2A55513E00CB71AA /* LuckyCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardGame.swift; sourceTree = "<group>"; };
+		47907CEA2A55513E00CB71AA /* LuckyGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyGame.swift; sourceTree = "<group>"; };
+		F41410C42A5ECD85005C16D0 /* SelectedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCard.swift; sourceTree = "<group>"; };
 		F460FC5A2A5937ED008C5B31 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F460FC5C2A593D27008C5B31 /* LuckyCardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardManager.swift; sourceTree = "<group>"; };
 		F460FC5E2A59BC34008C5B31 /* LuckyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardView.swift; sourceTree = "<group>"; };
-		F460FC612A5AA13A008C5B31 /* CardBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBoardView.swift; sourceTree = "<group>"; };
+		F460FC612A5AA13A008C5B31 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
+		F460FC652A5D2586008C5B31 /* LuckyGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyGameView.swift; sourceTree = "<group>"; };
+		F460FC6F2A5E3FEA008C5B31 /* LuckyCardManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardManagerProtocol.swift; sourceTree = "<group>"; };
+		F460FC712A5E40F1008C5B31 /* MockLuckyCardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLuckyCardManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 		47907CC42A53C1D100CB71AA /* LuckyCardGameTests */ = {
 			isa = PBXGroup;
 			children = (
+				F41410C62A5F9599005C16D0 /* Mock */,
 				47907CC52A53C1D100CB71AA /* LuckyCardGameTests.swift */,
 			);
 			path = LuckyCardGameTests;
@@ -148,10 +155,10 @@
 		47907CE32A55432B00CB71AA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				47907CE02A5400EC00CB71AA /* RoundView.swift */,
-				47907CDE2A53C8C400CB71AA /* PersonalCardBoardView.swift */,
 				F460FC5E2A59BC34008C5B31 /* LuckyCardView.swift */,
-				F460FC612A5AA13A008C5B31 /* CardBoardView.swift */,
+				47907CDE2A53C8C400CB71AA /* PersonalCardBoardView.swift */,
+				F460FC612A5AA13A008C5B31 /* GameBoardView.swift */,
+				F460FC652A5D2586008C5B31 /* LuckyGameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 			children = (
 				47907CE62A55436100CB71AA /* LuckyCard.swift */,
 				F460FC5A2A5937ED008C5B31 /* Player.swift */,
+				F41410C42A5ECD85005C16D0 /* SelectedCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,10 +198,27 @@
 		47907CF22A5650BB00CB71AA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F460FC6E2A5E3FDB008C5B31 /* Protocol */,
 				F460FC5C2A593D27008C5B31 /* LuckyCardManager.swift */,
-				47907CEA2A55513E00CB71AA /* LuckyCardGame.swift */,
+				47907CEA2A55513E00CB71AA /* LuckyGame.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		F41410C62A5F9599005C16D0 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				F460FC712A5E40F1008C5B31 /* MockLuckyCardManager.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		F460FC6E2A5E3FDB008C5B31 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F460FC6F2A5E3FEA008C5B31 /* LuckyCardManagerProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,13 +355,16 @@
 				47907CB32A53C1D000CB71AA /* CardBoardViewController.swift in Sources */,
 				47907CE72A55436100CB71AA /* LuckyCard.swift in Sources */,
 				47907CAF2A53C1D000CB71AA /* AppDelegate.swift in Sources */,
-				47907CEB2A55513E00CB71AA /* LuckyCardGame.swift in Sources */,
+				47907CEB2A55513E00CB71AA /* LuckyGame.swift in Sources */,
 				47907CB12A53C1D000CB71AA /* SceneDelegate.swift in Sources */,
-				F460FC622A5AA13A008C5B31 /* CardBoardView.swift in Sources */,
+				F460FC722A5E40F1008C5B31 /* MockLuckyCardManager.swift in Sources */,
+				F460FC622A5AA13A008C5B31 /* GameBoardView.swift in Sources */,
+				F41410C52A5ECD85005C16D0 /* SelectedCard.swift in Sources */,
 				47907CDF2A53C8C400CB71AA /* PersonalCardBoardView.swift in Sources */,
+				F460FC702A5E3FEA008C5B31 /* LuckyCardManagerProtocol.swift in Sources */,
 				F460FC5B2A5937ED008C5B31 /* Player.swift in Sources */,
 				F460FC5F2A59BC34008C5B31 /* LuckyCardView.swift in Sources */,
-				47907CE12A5400EC00CB71AA /* RoundView.swift in Sources */,
+				F460FC662A5D2586008C5B31 /* LuckyGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

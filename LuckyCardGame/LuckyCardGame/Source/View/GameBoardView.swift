@@ -1,5 +1,5 @@
 //
-//  CardBoardView.swift
+//  GameBoardView.swift
 //  LuckyCardGame
 //
 //  Created by 변상연 on 2023/07/09.
@@ -7,10 +7,12 @@
 
 import UIKit
 
-final class CardBoardView: UIView {
+final class GameBoardView: UIView {
+    
+    // MARK: - UI Properties
     
     enum Size {
-        static let subviewSpacing = 10.0
+        static let viewSpacing = 10.0
         static let playerCardBoardViewHeight = 100.0
     }
     
@@ -26,19 +28,24 @@ final class CardBoardView: UIView {
         return view
     }()
     
+    // MARK: - LifeCycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         configureUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         configureUI()
     }
     
+    // MARK: - Helpers
+    
     private func configureUI() {
         addSubviews()
-        configureFrame()
     }
     
     private func addSubviews() {
@@ -50,7 +57,7 @@ final class CardBoardView: UIView {
     
     func configureFrame() {
         configurePlayerCardBoardViewsFrame()
-        configureRemainCardBoardViewFrame(numberOfPlayer: LuckyCardGame.maxPlayerCount)
+        configureRemainCardBoardViewFrame(numberOfPlayer: LuckyGame.maxPlayerCount)
     }
     
     /// 각 플레이어가 소지한 카드를 보여주는 PlayerCardBoardView 배열의 frame을 설정
@@ -64,15 +71,16 @@ final class CardBoardView: UIView {
         
         for playerCardBoardView in playerCardBoardViewArray {
             playerCardBoardView.frame = frame
-            frame.origin.y += Size.playerCardBoardViewHeight + Size.subviewSpacing
+            frame.origin.y += Size.playerCardBoardViewHeight + Size.viewSpacing
         }
     }
     
     /// 플레이어 수에 따라 남은 카드를 보여주는 remainCardBoardView의 frame을 설정
     private func configureRemainCardBoardViewFrame(numberOfPlayer: Int) {
         let minPlayerBoardCount = 4
-        let y = (Size.playerCardBoardViewHeight + Size.subviewSpacing) * CGFloat(max(numberOfPlayer, minPlayerBoardCount))
+        let y = (Size.playerCardBoardViewHeight + Size.viewSpacing) * CGFloat(max(numberOfPlayer, minPlayerBoardCount))
         let height = frame.size.height - y
+        
         let frame = CGRect(
             x: 0,
             y: y,
@@ -84,14 +92,14 @@ final class CardBoardView: UIView {
     }
     
     /// 게임 타입과 분배된 카드를 기반으로 뷰를 업데이트
-    func update(for gameType: LuckyCardGame.GameType, with splitedCard: [[LuckyCard]]) {
+    func update(for gameType: LuckyGame.GameType, with splitedCard: [[LuckyCard]]) {
         updateVisibilityOfPlayerBoardView(gameType)
         configureRemainCardBoardViewFrame(numberOfPlayer: gameType.playerCount)
         updateCardView(splitedCard)
     }
     
     /// 게임 타입에 따라 PlayerCardBoardView들의 isHidden 속성 값을 업데이트
-    private func updateVisibilityOfPlayerBoardView(_ gameType: LuckyCardGame.GameType) {
+    private func updateVisibilityOfPlayerBoardView(_ gameType: LuckyGame.GameType) {
         for index in 0..<playerCardBoardViewArray.count {
             playerCardBoardViewArray[index].isHidden = index >= gameType.playerCount
         }

@@ -11,12 +11,10 @@ import Foundation
  class : 다른 카드 분배 룰을 가질 경우 해당 카드매니저를 상속하여 사용할 수 있도록 확장성을 고려
  */
 
-class LuckyCardManager {
-    
-    init() { }
+final class LuckyCardManager: LuckyCardManagerProtocol {
     
     /// 게임 타입에 따라 카드를 분배하여 반환
-    func splitCard(gameType: LuckyCardGame.GameType) -> [[LuckyCard]] {
+    func splitCard(gameType: LuckyGame.GameType) -> [[LuckyCard]] {
         let deck = createCardDeck(
             filteredShapes: gameType.cardShapesToFilter,
             filteredNumbers: gameType.cardNumbersToFilter
@@ -26,7 +24,7 @@ class LuckyCardManager {
         // 각 플레이어에게 나눠줄 카드 분배
         var splitedCard = [[LuckyCard]]()
         for playerNumber in 0..<gameType.playerCount {
-            let range = cardCountPerPlayer*playerNumber..<cardCountPerPlayer * (playerNumber+1)
+            let range = cardCountPerPlayer * playerNumber..<cardCountPerPlayer * (playerNumber+1)
             
             var cards = Array(deck[range])
             
@@ -41,9 +39,9 @@ class LuckyCardManager {
         }
         
         // 나머지 카드 append
-        let range = cardCountPerPlayer*gameType.playerCount..<deck.count
+        let range = cardCountPerPlayer * gameType.playerCount..<deck.count
         splitedCard.append(Array(deck[range]))
-            
+
         return splitedCard
     }
     

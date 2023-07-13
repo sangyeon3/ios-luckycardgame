@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PersonalCardBoardView: RoundView {
+final class PersonalCardBoardView: UIView {
     
     static let maxCardCount = 9
     
@@ -25,16 +25,20 @@ final class PersonalCardBoardView: RoundView {
             width: Size.nameLabelSize,
             height: Size.nameLabelSize)
         )
-        label.textColor = .gray.withAlphaComponent(0.5)
         
-        guard let fontDescriptor = UIFont.systemFont(ofSize: 40).fontDescriptor.withSymbolicTraits([.traitBold, .traitItalic]) else {
+        guard let fontDescriptor = UIFont
+            .systemFont(ofSize: 40)
+            .fontDescriptor
+            .withSymbolicTraits([.traitBold, .traitItalic]) else {
             return label
         }
         label.font = UIFont(descriptor: fontDescriptor, size: 40)
+        label.textColor = .gray.withAlphaComponent(0.5)
+        
         return label
     }()
     
-    private let cardViewArray = Array(0..<maxCardCount).map { _ in LuckyCardView() }
+    private let cardViewArray = (0..<maxCardCount).map { _ in LuckyCardView() }
     
     init(frame: CGRect, name: String) {
         super.init(frame: frame)
@@ -53,7 +57,10 @@ final class PersonalCardBoardView: RoundView {
         configureUI()
     }
     
-    private func configureUI() {        
+    private func configureUI() {
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
+        
         addSubview(nameLabel)
         for cardView in cardViewArray {
             addSubview(cardView)
@@ -95,10 +102,17 @@ final class PersonalCardBoardView: RoundView {
         for lineIndex in 0..<numberOfLines {
             let y = (LuckyCardView.Size.cardHeight + verticalSpacing) * CGFloat(lineIndex) + verticalSpacing
             for i in 0..<Int(numberOfCardPerLine) {
-                let index = Int(numberOfCardPerLine) * lineIndex + i
-                if index >= cardCount { continue }
+                let cardIndex = Int(numberOfCardPerLine) * lineIndex + i
+                
+                if cardIndex >= cardCount { continue }
+                
                 let x = Size.cardViewInset + (LuckyCardView.Size.cardWidth + horizontalSpacing) * CGFloat(i)
-                cardViewArray[index].frame = CGRect(x: x, y: y, width: LuckyCardView.Size.cardWidth, height: LuckyCardView.Size.cardHeight)
+                cardViewArray[cardIndex].frame = CGRect(
+                    x: x,
+                    y: y,
+                    width: LuckyCardView.Size.cardWidth,
+                    height: LuckyCardView.Size.cardHeight
+                )
             }
         }
     }
